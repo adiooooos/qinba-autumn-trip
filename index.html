@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0C0A09">
+<title>秦巴秋韵 · 汉中—光雾山—恩阳 · 2026.11.08—11.12</title>
+<meta name="description" content="2026 年 11 月 8—12 日，汉中落地自驾光雾山、米仓山、十八月潭、恩阳古镇。逐日路线地图、2 小时分块行程、住宿与预算。">
+<meta property="og:title" content="秦巴秋韵 · 汉中—光雾山—恩阳 · 3 天自驾">
+<meta property="og:description" content="11/8 落地汉中，三天自驾把今年最后一段彩林开完。">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3CradialGradient id='g' cx='35%25' cy='30%25'%3E%3Cstop offset='0' stop-color='%23F0906F'/%3E%3Cstop offset='.6' stop-color='%23D4503A'/%3E%3Cstop offset='1' stop-color='%237E2E20'/%3E%3C/radialGradient%3E%3C/defs%3E%3Ccircle cx='16' cy='16' r='14' fill='url(%23g)'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="./assets/css/site.css">
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<nav class="nav" id="nav">
+  <a class="brand" href="#top"><span class="mk"></span>秦巴秋韵</a>
+  <div class="nav-links">
+    <a href="#map">路线地图</a>
+    <a href="#days">每日行程</a>
+    <a href="#stays">住宿</a>
+    <a href="#budget">预算</a>
+    <a href="#notes">行前须知</a>
+  </div>
+  <div class="nav-date">11.08 — 11.12</div>
+</nav>
+
+<!-- ================= HERO ================= -->
+<header class="hero" id="top">
+  <div class="hero-bg"></div>
+  <canvas id="leaves"></canvas>
+
+  <div class="hero-inner">
+    <div>
+      <p class="eyebrow">Qinba Autumn · Self-drive</p>
+      <h1 class="hero-title">秦巴<span class="l2">秋韵</span></h1>
+      <p class="hero-sub">
+        汉中落地，<b>三天，一条不走回头路的环线</b>，把今年最后一段彩林开完。<br>
+        米仓山的天然画廊、十八月潭的水与红叶、恩阳古镇的青石长街。
+      </p>
+      <div class="hero-actions">
+        <a class="btn primary" href="#map">打开路线地图 <span class="ar">→</span></a>
+        <a class="btn" href="#days">逐日行程</a>
+      </div>
+    </div>
+
+    <div class="date-rail">
+      <span class="yr">2026</span>
+      <span class="dt">11.08</span>
+      <span class="sep"></span>
+      <span class="dt dim">11.12</span>
+      <span class="meta">5 天 4 晚 · 2 人一车</span>
+    </div>
+  </div>
+
+  <div class="hero-foot" id="heroStats"></div>
+
+  <div class="scroll-cue"><i></i>SCROLL</div>
+</header>
+
+<!-- ================= 地图 ================= -->
+<section class="mapsec" id="map">
+  <div id="amap"></div>
+  <div class="map-veil"></div>
+
+  <div class="map-load" id="mapLoad">
+    <div class="spin"></div>
+    <div>LOADING ROUTE</div>
+  </div>
+
+  <div class="map-ui">
+    <div class="map-head">
+      <div>
+        <p class="eyebrow">Route Map</p>
+        <h2>高德实时路线</h2>
+      </div>
+      <div class="live"><i></i>LIVE ROUTING</div>
+    </div>
+
+    <div class="day-tabs" id="dayTabs"></div>
+
+    <aside class="map-panel" id="mapPanel">
+      <div class="mp-head">
+        <div class="k" id="mpK">OVERVIEW</div>
+        <div class="t" id="mpT">全程 · 5 天</div>
+        <div class="mp-mets" id="mpMets"></div>
+      </div>
+      <div class="mp-body" id="mpBody"></div>
+    </aside>
+
+    <div class="map-legend">
+      <div><span class="lg" style="background:#E8B44A"></span>D0 落地汉中</div>
+      <div><span class="lg" style="background:#D4503A"></span>D1 米仓山</div>
+      <div><span class="lg" style="background:#C97A3E"></span>D2 十八月潭</div>
+      <div><span class="lg" style="background:#8FA86B"></span>D3 恩阳 → 汉中</div>
+      <div><span class="lg" style="background:#6E93A8"></span>D4 返程</div>
+    </div>
+
+    <div class="map-tools">
+      <div class="mtool" id="btnFit" title="回到全程">⤢</div>
+      <div class="mtool" id="btnSat" title="卫星影像">🛰</div>
+      <div class="mtool" id="btnTop" title="返回顶部">↑</div>
+    </div>
+  </div>
+
+  <div class="map-fallback" id="mapFallback">
+    <div class="mf-box">
+      <h3>地图没能加载</h3>
+      <p>行程内容不受影响，往下滑照样看。通常是这两种原因：</p>
+      <ol>
+        <li>高德控制台里这个 Key 的<b>域名白名单</b>没加当前域名 —— 去 <code>console.amap.com</code> → 应用管理，把当前域名加进去</li>
+        <li>网络不通或被拦截，换个网络再刷新</li>
+      </ol>
+      <p style="margin-top:14px">临时换 Key 测试：网址后面加 <code>?key=你的Key</code></p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 每日行程 ================= -->
+<section class="sec" id="days">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="sec-no">01 / DAILY PLAN</div>
+        <h2>五天，<em>一天一天过</em></h2>
+        <p>每格 2 小时。🚗 是车程段，红色是必须卡死的节点，其余都可以现场临时砍。</p>
+      </div>
+      <a class="btn" href="#map">在地图上看 →</a>
+    </div>
+  </div>
+
+  <div class="wrap" id="dayList"></div>
+</section>
+
+<!-- ================= 住宿 ================= -->
+<section class="sec" id="stays">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="sec-no">02 / STAYS</div>
+        <h2>四晚，<em>¥300—700</em></h2>
+        <p>全部落在你给的预算区间内，按「今天走完最需要什么」选，不是按星级选。</p>
+      </div>
+    </div>
+    <div class="stays" id="stayList"></div>
+  </div>
+</section>
+
+<!-- ================= 预算 ================= -->
+<section class="sec" id="budget">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="sec-no">03 / BUDGET</div>
+        <h2>两个人，<em>¥9,360</em></h2>
+        <p>不含购物。想压到人均 ¥4,180 就砍香炉山索道、住宿换麗枫 + 光雾屿。</p>
+      </div>
+    </div>
+    <div class="bud">
+      <div class="bars" id="barList"></div>
+      <aside class="totcard">
+        <div class="k">TOTAL · 2 PAX</div>
+        <div class="big" id="totBig">¥0</div>
+        <div class="pp">人均 <b id="totPer">¥0</b> · 含往返机票</div>
+        <ul>
+          <li><span>不含机票</span><b id="totNoAir">—</b></li>
+          <li><span>三天自驾</span><b id="budgetKm">— km</b></li>
+          <li><span>住宿</span><b>4 晚</b></li>
+          <li><span>门票 + 索道</span><b>2 人 ¥810</b></li>
+        </ul>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 行前须知 ================= -->
+<section class="sec" id="notes">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="sec-no">04 / FIELD NOTES</div>
+        <h2>六条，<em>必须知道</em></h2>
+        <p>红叶为自然景观，受降温、大风、降雨影响很大，实际色况以出行当日官方红叶指数为准。</p>
+      </div>
+    </div>
+
+    <div class="grid2">
+      <div class="tipslist" id="tipList"></div>
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <div class="panel">
+          <h4>气温 · 11.08—11.12</h4>
+          <div id="tempList"></div>
+        </div>
+        <div class="panel">
+          <h4>装备</h4>
+          <div class="gear" id="gearList"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <div class="foot-title">秦巴秋韵 · 2026</div>
+        <div class="foot-sub">
+          汉中城固机场进，汉中城固机场出，全程不走回头路。<br>
+          三天自驾，最高海拔 2320 米（香炉山），17:30 前必须到住宿点。
+        </div>
+      </div>
+      <button class="to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑ 回到顶部</button>
+    </div>
+    <div class="foot-note">
+      里程、车程以高德地图实时路径规划为准（页面内路线由高德 JS API 现场计算，可能因路况与地图版本略有偏差）。<br>
+      天气为 2026 年 11 月 6 日多家平台预报汇整，山区实际温度通常低于城区 4—6℃。酒店价格为当前可查的 11 月参考价，红叶季会浮动。<br>
+      <b>出行前请以官方实时信息（景区公告、机票、天气预报）为准。</b>
+    </div>
+  </div>
+</footer>
+
+<script src="./assets/js/data.js"></script>
+<script src="./assets/js/routes.js"></script>
+<script src="./assets/js/site.js"></script>
+<script src="./assets/js/map.js"></script>
+</body>
+</html>
