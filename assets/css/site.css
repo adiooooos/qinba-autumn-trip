@@ -454,7 +454,7 @@ h1.hero-title .l2{
   .d-left{position:static;padding-right:0;padding-bottom:26px}
   .d-right{padding-left:0;border-left:0;border-top:1px solid var(--line);padding-top:22px}
   .blk{grid-template-columns:96px 1fr;gap:14px}
-  .blk.drive,.blk.key{margin:0 -10px;padding-left:10px;padding-right:10px}
+  .blk.drive,.blk.key{margin:0;padding:7px 12px;border-radius:8px}
 }
 @media(max-width:520px){
   .blk{grid-template-columns:1fr;gap:3px}
