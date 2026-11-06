@@ -123,13 +123,13 @@ h1.hero-title{
   font-weight:800;letter-spacing:-.04em;
 }
 h1.hero-title .l2{
-  display:block;margin-top:-.04em;
+  display:block;
   background:linear-gradient(96deg,#F2C06A 0%,#E8705A 44%,#B23A28 100%);
   -webkit-background-clip:text;background-clip:text;color:transparent;
 }
 .hero-sub{
   margin:34px 0 0;font-size:clamp(14px,1.4vw,17px);color:var(--txt-2);
-  line-height:1.9;max-width:520px;
+  line-height:1.9;max-width:600px;
 }
 .hero-sub b{color:var(--txt);font-weight:600}
 .hero-actions{display:flex;gap:12px;margin-top:36px;flex-wrap:wrap}
@@ -189,14 +189,7 @@ h1.hero-title .l2{
     border-top:1px solid var(--line);padding-top:16px;margin-top:4px}
 }
 
-.scroll-cue{
-  position:absolute;left:28px;bottom:16px;z-index:3;
-  font-family:var(--mono);font-size:9.5px;letter-spacing:.3em;color:var(--txt-3);
-  display:flex;align-items:center;gap:8px;opacity:.7;
-}
-.scroll-cue i{display:block;width:24px;height:1px;background:linear-gradient(90deg,var(--maple),transparent)}
-@media(max-height:760px){.scroll-cue{display:none}}
-@media(max-width:640px){.scroll-cue{display:none}}
+.scroll-cue{display:none}
 
 /* ---------------- 通用区块 ---------------- */
 .sec{padding:104px 0}
